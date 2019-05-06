@@ -85,6 +85,6 @@ constructor(private http:HttpClient) {
    return promise
  }
 
- updateProfile(username:string){
-   this.username = username;
+ updateProfile(username:string); {
+   this.username = username ;
  }
