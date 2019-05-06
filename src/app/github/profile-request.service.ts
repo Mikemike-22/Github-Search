@@ -59,3 +59,23 @@ constructor(private http:HttpClient) {
     })
      return promise
    }
+   getRepoInfo(){
+
+   interface APInfo{
+     name:string;
+     html_url:string;
+     description:string;
+
+ }
+
+   let promise = new Promise((resolve,reject)=>{
+     this.http.get<APInfo[]>(environment.apiUrl+this.username + "/repos" +environment.access_token).toPromise().then(response=>{
+
+       response.forEach(repo => {
+         this.repos.push(new Repository(repo.name, repo.html_url, repo.description))
+
+       });
+
+
+       resolve()
+     }
