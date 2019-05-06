@@ -78,4 +78,13 @@ constructor(private http:HttpClient) {
 
 
        resolve()
-     }
+     },eror=>{
+       reject(error)
+     })
+   })
+   return promise
+ }
+
+ updateProfile(username:string){
+   this.username = username;
+ }
