@@ -1,14 +1,15 @@
 
 import { Component, OnInit } from '@angular/core';
-import { ProfileService } from '../profile-request/profile.service';
+import { ProfileRequestService } from '../github/profile-request.service';
 import { User } from '../user';
 import { Repository } from '../repository';
+
 
 
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
-  providers:[ProfileService],
+  providers:[ProfileRequestService],
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit {
@@ -16,7 +17,7 @@ export class ProfileComponent implements OnInit {
   repo:Repository[];
   public username:string;
 
-  constructor(private profService:ProfileService) { }
+  constructor(private profService:ProfileRequestService) { }
 
   findUser(){
     this.profService.updateProfile(this.username);
@@ -26,7 +27,7 @@ export class ProfileComponent implements OnInit {
 
   ngOnInit() {
     this.profService.getInfo();
-    this.profSerice.getRepoInfo();
+    this.profService.getRepoInfo();
     this.user=this.profService.user
     this.repo=this.profService.repos
   }

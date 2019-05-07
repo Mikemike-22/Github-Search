@@ -1,13 +1,12 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {User} from '../user';
-import {environment} from 'src/environment/environment';
+import {environment} from 'src/environments/environment';
 import {Repository} from '../repository';
 
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
+
 export class ProfileRequestService {
 
   user:User;
@@ -29,7 +28,7 @@ constructor(private http:HttpClient) {
   interface UserInfo{
     login:string;
     avatar_url:string;
-    public_repos:string;
+    repos:string;
     followers:number;
     following:number;
     html_url:string;
@@ -42,7 +41,7 @@ constructor(private http:HttpClient) {
       this.http.get<UserInfo>(environment.apiUrl+this.username +environment.access_token).toPromise().then(response=>{
         this.user.login= response.login
         this.user.avatar_url = response.avatar_url
-        this.user.public_repos = response.public_repos
+        this.user.repos = response.repos
         this.user.followers=response.followers
         this.user.following=response.following
         this.user.html_url=response.html_url
@@ -53,7 +52,7 @@ constructor(private http:HttpClient) {
        },error=>{
          this.user.login = "Error Fetching Data"
          this.user.avatar_url = "Error Fetching Data"
-         this.user.public_repos = "Error"
+         this.user.repos = "Error"
          reject(error)
        })
     })
@@ -78,13 +77,14 @@ constructor(private http:HttpClient) {
 
 
        resolve()
-     },eror=>{
+     },error=>{
        reject(error)
      })
    })
    return promise
  }
 
- updateProfile(username:string); {
+ updateProfile(username:string) {
    this.username = username ;
  }
+}
