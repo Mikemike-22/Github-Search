@@ -1,14 +1,14 @@
-Github-Search Application
+# Github-Search Application
 This project was generated with Angular CLI version 7.3.8.
 
-##Author
+## Author
 
 Michael Kipkorir Cheruiyot
 
-##Project Description
+## Project Description
  This is an Angular application that allows a user to search for repositories and users on GitHub. The application will display the number of repositories, followers , and other users they follow and their bio data of the user.The application will also display their user profile pictures.
 
-###Project Setup Instructions Use these command to use the project
+### Project Setup Instructions Use these command to use the project
 
 git clone https://github.com/Mikemike-22/Github-Search.git
 cd Github-Search
@@ -28,7 +28,7 @@ Run ng test to execute the unit tests via Karma.
 Running end-to-end tests
 Run ng e2e to execute the end-to-end tests via Protractor.
 
-###Technologies used Technologies used include:
+### Technologies used Technologies used include:
 
 Angular
 JavaScript
@@ -42,10 +42,10 @@ CSS
 | Github button                 | takes user to index page                            | will return user to the index page                      |
 | View on Git hub button        | links to Git hub account                            | will direct user to the users' account on Git hub       |
 
-##Further help
+## Further help
 To get more help on the Angular CLI use ng help or go check out the Angular CLI README.
 
-###License &Copyright infromation Copyright (c) 2019 Michael Kipkorir Cheruiyot
+### License &Copyright infromation Copyright (c) 2019 Michael Kipkorir Cheruiyot
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
