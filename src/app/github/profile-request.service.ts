@@ -6,10 +6,9 @@ import {Repository} from '../repository';
 
 
 @Injectable()
-
 export class ProfileRequestService {
 
-  user:User;
+user:User;
 repos:Repository[];
 public username:string;
 public newUsername:string;
@@ -28,7 +27,7 @@ constructor(private http:HttpClient) {
   interface UserInfo{
     login:string;
     avatar_url:string;
-    repos:string;
+    public_repos:string;
     followers:number;
     following:number;
     html_url:string;
@@ -41,7 +40,7 @@ constructor(private http:HttpClient) {
       this.http.get<UserInfo>(environment.apiUrl+this.username +environment.access_token).toPromise().then(response=>{
         this.user.login= response.login
         this.user.avatar_url = response.avatar_url
-        this.user.repos = response.repos
+        this.user.public_repos = response.public_repos
         this.user.followers=response.followers
         this.user.following=response.following
         this.user.html_url=response.html_url
@@ -52,7 +51,7 @@ constructor(private http:HttpClient) {
        },error=>{
          this.user.login = "Error Fetching Data"
          this.user.avatar_url = "Error Fetching Data"
-         this.user.repos = "Error"
+
          reject(error)
        })
     })
